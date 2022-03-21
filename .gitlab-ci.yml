@@ -1,0 +1,20 @@
+stages:
+  - Build
+
+cache:
+  paths:
+    - $CI_PROJECT_DIR/dist/
+
+Build:
+  image: library/node:14.13.0
+  stage: Build
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/dist/
+    expire_in: 1h
+  script:
+    - node -v
+    - date
+    - ls
+    - npm install
+    - npm run build
