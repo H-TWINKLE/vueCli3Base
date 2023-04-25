@@ -10,11 +10,13 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "axios": "^0.24.0",
+    "class-transformer": "^0.5.1",
     "dayjs": "^1.10.7",
     "element-plus": "2.0.6",
     "font-awesome": "^4.7.0",
     "normalize.css": "^8.0.1",
     "pinia": "^2.0.35",
+    "reflect-metadata": "^0.1.13",
     "vue": "^3.2.25",
     "vue-router": "^4.0.13",
     "vue3-echarts": "^1.0.4",

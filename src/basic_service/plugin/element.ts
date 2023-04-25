@@ -1,6 +1,7 @@
 import ElementPlus from 'element-plus'
 import 'element-plus/theme-chalk/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import 'reflect-metadata';
 
 export function installElement(app: any) {
     app.use(ElementPlus)
