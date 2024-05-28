@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Base</h2>
+<!--        <h2>Base</h2>-->
         <Container/>
     </div>
 </template>

@@ -42,7 +42,7 @@ class HttpKit {
     protected interceptorsRequest() {
         this.http.interceptors.request.use(
             (config: any) => {
-                if (config.isBaseService) {
+                if (config.asBody) {
                     config.headers['Content-Type'] = 'application/json; charset=UTF-8'
                 }
                 return config
@@ -73,7 +73,7 @@ class HttpKit {
         }
     }
 
-    public async post(url: string, data: any = {}, config: object = {}) {
+    public async post(url: string, data: any, config: object = {}) {
         try {
             return await this.http.post(url, data, config)
         } catch (error) {

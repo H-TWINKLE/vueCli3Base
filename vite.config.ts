@@ -33,7 +33,11 @@ export default defineConfig({
         open: true,
         // 代理网址
         proxy: {
-            '/api': {
+            '/dc': {
+                target: 'http://127.0.0.1/',
+                changeOrigin: true
+            },
+            '/file': {
                 target: 'http://127.0.0.1/',
                 changeOrigin: true
             }
