@@ -4,6 +4,7 @@ import httpKit from '@/basic_service/http/httpKit';
 import { UploadProps } from 'element-plus';
 import {
     datasourceGenerateExportApi,
+    dcDataSourceImportApi,
     dcExportApi,
     dcImportApi,
     fileContentApi,
@@ -27,6 +28,7 @@ export default defineComponent({
             driver: 'postgres',
             host: '127.0.0.1',
             database: 'data-contract',
+            port: 5432,
             user: 'root',
             password: '123456'
         })
@@ -129,6 +131,14 @@ export default defineComponent({
             }
         }
 
+        const onSubmitDatasourceAsYaml = async () => {
+            const result = await httpKit.get(dcDataSourceImportApi, datasourceForm)
+            if (result) {
+                page.contentData = result.data
+                getFileList()
+            }
+        }
+
         const onDeleteFile = async (scope: any) => {
             const result = await httpKit.post(`${ fileDeleteApi }?file=${ scope.row.name }`, {})
             if (result) {
@@ -157,7 +167,8 @@ export default defineComponent({
             toModifyContent,
             getExportFormatTag,
             onSubmitDatasource,
-            onDeleteFile
+            onDeleteFile,
+            onSubmitDatasourceAsYaml
         }
     }
 })

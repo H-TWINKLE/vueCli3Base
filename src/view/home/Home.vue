@@ -17,7 +17,7 @@
                                 <el-button type="primary" style="margin-top: 20px">上传</el-button>
                             </el-upload>
                         </el-tab-pane>
-                        <el-tab-pane label="动态生成数据库ddl" name="2">
+                        <el-tab-pane label="动态导入数据库ddl" name="2">
                             <el-form :model="datasourceForm" label-width="auto"
                                      style="max-width: 600px;margin-top: 20px">
                                 <el-form-item label="数据源唯一key">
@@ -30,6 +30,9 @@
                                 </el-form-item>
                                 <el-form-item label="ip地址">
                                     <el-input v-model="datasourceForm.host"/>
+                                </el-form-item>
+                                <el-form-item label="端口">
+                                    <el-input v-model="datasourceForm.port"/>
                                 </el-form-item>
                                 <el-form-item label="数据库名称">
                                     <el-input v-model="datasourceForm.database"/>
@@ -44,7 +47,8 @@
                                               show-password/>
                                 </el-form-item>
                                 <el-form-item>
-                                    <el-button type="primary" @click="onSubmitDatasource">提交</el-button>
+                                    <el-button type="primary" @click="onSubmitDatasource">生成数据ddl</el-button>
+                                    <el-button type="primary" @click="onSubmitDatasourceAsYaml">生成数据合约</el-button>
                                 </el-form-item>
                             </el-form>
                         </el-tab-pane>
