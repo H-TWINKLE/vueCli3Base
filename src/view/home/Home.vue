@@ -21,30 +21,30 @@
                             <el-form :model="datasourceForm" label-width="auto"
                                      style="max-width: 600px;margin-top: 20px">
                                 <el-form-item label="数据源唯一key">
-                                    <el-input v-model="datasourceForm.key"/>
+                                    <el-input v-model="datasourceForm.key" />
                                 </el-form-item>
                                 <el-form-item label="数据源驱动">
                                     <el-select v-model="datasourceForm.driver" placeholder="请选择数据源驱动">
-                                        <el-option label="postgres" value="postgres"/>
+                                        <el-option label="postgres" value="postgres" />
                                     </el-select>
                                 </el-form-item>
                                 <el-form-item label="ip地址">
-                                    <el-input v-model="datasourceForm.host"/>
+                                    <el-input v-model="datasourceForm.host" />
                                 </el-form-item>
                                 <el-form-item label="端口">
-                                    <el-input v-model="datasourceForm.port"/>
+                                    <el-input v-model="datasourceForm.port" />
                                 </el-form-item>
                                 <el-form-item label="数据库名称">
-                                    <el-input v-model="datasourceForm.database"/>
+                                    <el-input v-model="datasourceForm.database" />
                                 </el-form-item>
                                 <el-form-item label="数据库用户名">
-                                    <el-input v-model="datasourceForm.user"/>
+                                    <el-input v-model="datasourceForm.user" />
                                 </el-form-item>
                                 <el-form-item label="数据库密码">
                                     <el-input v-model="datasourceForm.password"
                                               type="password"
                                               placeholder="请输入密码"
-                                              show-password/>
+                                              show-password />
                                 </el-form-item>
                                 <el-form-item>
                                     <el-button type="primary" @click="onSubmitDatasource">生成数据ddl</el-button>
@@ -55,29 +55,29 @@
                         <el-tab-pane label="导出合约" name="3">
                             <el-form label-position="left" label-width="auto" style="max-width: 600px;margin-top: 20px">
                                 <el-form-item label="导出合约名字">
-                                    <el-input v-model="page.exportName" placeholder="请填写导出合约名字"/>
+                                    <el-input v-model="page.exportName" placeholder="请填写导出合约名字" />
                                 </el-form-item>
                                 <el-form-item label="导出格式">
                                     <el-select v-model="page.format" placeholder="请选择导出格式">
                                         <el-option v-for="i in getExportFormatTag()"
                                                    :label="i.label"
                                                    :value="i.value"
-                                                   :key="i"/>
+                                                   :key="i" />
                                     </el-select>
                                 </el-form-item>
                             </el-form>
                         </el-tab-pane>
                     </el-tabs>
-                    <el-divider/>
+                    <el-divider />
                     <el-table
                         :data="page.remoteFileList" stripe style="width: 100%;margin-top: 40px">
-                        <el-table-column prop="name" label="文件名称"/>
+                        <el-table-column prop="name" label="文件名称" />
                         <el-table-column label="操作" width="240">
                             <template #default="scope">
                                 <el-link class="el-link-text-action" type="primary" link
                                          @click="onRowView(scope)">查看
                                 </el-link>
-                                 <el-link class="el-link-text-action" type="primary" link
+                                <el-link class="el-link-text-action" type="primary" link
                                          @click="changeModifyStatus(scope)">修改
                                 </el-link>
                                 <el-link class="el-link-text-action" type="success" link
@@ -104,7 +104,7 @@
                         <div style="margin-top: 8px">{{ page.filename }}</div>
                         <div>
                             <el-button v-if="page.modify" type="danger" @click="toModifyContent">保存</el-button>
-<!--                            <el-button v-if="!page.modify" type="success" @click="changeModifyStatus">修改</el-button>-->
+                            <!--                            <el-button v-if="!page.modify" type="success" @click="changeModifyStatus">修改</el-button>-->
                         </div>
                     </div>
                     <div v-if="!page.modify">

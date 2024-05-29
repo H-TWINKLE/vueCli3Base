@@ -1,7 +1,7 @@
 import { defineComponent, onMounted, reactive, ref } from 'vue'
-import { Edit, Present, Search } from "@element-plus/icons-vue";
-import httpKit from '@/basic_service/http/httpKit';
-import { UploadProps } from 'element-plus';
+import { Edit, Present, Search } from '@element-plus/icons-vue'
+import httpKit from '@/basic_service/http/httpKit'
+import { UploadProps } from 'element-plus'
 import {
     datasourceGenerateExportApi,
     dcDataSourceImportApi,
@@ -12,7 +12,7 @@ import {
     fileListApi,
     fileModifyApi,
     fileUploadApi
-} from '@/basic_service/http/apiConstants';
+} from '@/basic_service/http/apiConstants'
 
 export default defineComponent({
     components: {
@@ -56,7 +56,7 @@ export default defineComponent({
             const result = await httpKit.get(fileListApi)
             if (result && result.data) {
                 page.remoteFileList = result.data.map((item: any) => {
-                    return { "name": item }
+                    return { 'name': item }
                 })
             }
         }

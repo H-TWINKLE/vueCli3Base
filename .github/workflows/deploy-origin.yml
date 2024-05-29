@@ -1,0 +1,49 @@
+name: htwinkle.web - docker
+
+on:
+  push:
+    branches: [ develop ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: build
+        run: |
+          npm install
+          export NODE_OPTIONS=--max-old-space-size=8192
+          npm run build
+          tar -czvf dist.tar.gz dist
+
+      - name: upload to server
+        uses: cross-the-world/scp-pipeline@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          port: ${{ secrets.SERVER_PORT }}
+          user: ${{ secrets.SERVER_USER }}
+          pass: ${{ secrets.SERVER_PASS }}
+          local: "dist.tar.gz"
+          remote: "/home/app/data-contract-front/"
+
+      - name: deploy server
+        uses: cross-the-world/ssh-pipeline@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          port: ${{ secrets.SERVER_PORT }}
+          user: ${{ secrets.SERVER_USER }}
+          pass: ${{ secrets.SERVER_PASS }}
+          script: |
+            tar -zxvf /home/app/data-contract-front/dist.tar.gz
+            
+        
+

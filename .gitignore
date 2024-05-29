@@ -1,2 +1,11 @@
 /dist/
 /node_modules/
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/codeStyles/Project.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore
+/.idea/data-contract-web.iml
+/.idea/encodings.xml
+/.idea/highlightedFiles.xml
+/.idea/modules.xml
+/.idea/vcs.xml
