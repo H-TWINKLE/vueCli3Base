@@ -43,7 +43,7 @@ jobs:
           user: ${{ secrets.SERVER_USER }}
           pass: ${{ secrets.SERVER_PASS }}
           script: |
-            tar -zxvf /home/app/data-contract-front/dist.tar.gz
+            tar -zxvf /home/app/data-contract-front/dist.tar.gz -C /home/app/data-contract-front/
             
         
 
