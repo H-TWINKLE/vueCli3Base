@@ -33,9 +33,9 @@ jobs:
           user: ${{ secrets.SERVER_USER }}
           pass: ${{ secrets.SERVER_PASS }}
           local: "dist.tar.gz"
-          remote: "/home/app/data-contract-front/"
+          remote: "/opt/web/app/data-contract-front/"
 
-      - name: deploy server
+      - name: unzip build dist
         uses: cross-the-world/ssh-pipeline@master
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -43,7 +43,8 @@ jobs:
           user: ${{ secrets.SERVER_USER }}
           pass: ${{ secrets.SERVER_PASS }}
           script: |
-            tar -zxvf /home/app/data-contract-front/dist.tar.gz -C /home/app/data-contract-front/
+            rm -rf /opt/web/app/data-contract-front/
+            tar -zxvf /opt/web/app/data-contract-front/dist.tar.gz -C /opt/web/app/data-contract-front/
             
         
 
