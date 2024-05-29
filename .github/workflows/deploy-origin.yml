@@ -2,7 +2,7 @@ name: htwinkle.web - docker
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ data-contract ]
 
   workflow_dispatch:
 
