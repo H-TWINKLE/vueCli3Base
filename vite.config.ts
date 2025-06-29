@@ -3,6 +3,7 @@ import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
 import virtualFilePlugin from './src/basic_service/plugin/virtualFilePlugin'
 import { viteMockServe } from 'vite-plugin-mock'
+import VueDevTools from 'vite-plugin-vue-devtools'
 
 const localEnabled: any = (process.env.USE_MOCK && process.env.USE_MOCK === 'true') || false
 
@@ -18,15 +19,16 @@ export default defineConfig({
             '@': resolve(__dirname, 'src')
         }
     },
-    plugins: [vue(), virtualFilePlugin(),
+    plugins: [
+        vue(),
+        VueDevTools(),
+        virtualFilePlugin(),
         viteMockServe({
             mockPath: './mock',
             // 开发打包开关
-            localEnabled: Boolean(localEnabled),
+            enable: Boolean(localEnabled),
             // 是否在控制台显示请求日志
-            logger: false,
-            // 打开后，可以读取 ts 文件模块。 请注意，打开后将无法监视.js 文件
-            supportTs: false
+            logger: false
         })],
     server: {
         port: 9020,

@@ -6,7 +6,7 @@ const exec = require('child_process').execSync
 // 保存根路径
 const rootPath = __dirname
 let result = fs.readdirSync(rootPath)
-const consoleLogPath = path.join(rootPath, 'log')
+const consoleLogPath = path.join(rootPath, 'publish.log')
 
 result.forEach(fName => {
     if (!fName.startsWith('node_modules')) {
