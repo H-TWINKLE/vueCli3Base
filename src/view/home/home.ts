@@ -1,5 +1,5 @@
-import {defineComponent} from 'vue'
-import {Search} from "@element-plus/icons-vue";
+import { defineComponent, ref } from 'vue'
+import { Search } from '@element-plus/icons-vue'
 
 export default defineComponent({
     components: {
@@ -7,5 +7,7 @@ export default defineComponent({
     },
     name: 'Home',
     setup() {
+        const code = ref<string>('<div>npm install --save highlight.js</div>')
+        return { code }
     }
 })

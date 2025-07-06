@@ -3,6 +3,10 @@ import App from './App.vue'
 import { installElement } from './basic_service/plugin/element'
 import router from './basic_service/router'
 import BasePage from './components/common/BasePage.vue'
+// 主题样式
+import 'highlight.js/styles/atom-one-dark.css'
+import 'highlight.js/lib/common'
+import hljsVuePlugin from '@highlightjs/vue-plugin'
 
 // 引入浏览器格式化css文件
 import 'normalize.css'
@@ -14,5 +18,6 @@ const app = createApp(App)
 installElement(app)
 // 引入基础公共页面
 app.component('BasePage', BasePage)
+app.use(hljsVuePlugin)
 app.use(router)
 app.mount('#app')
